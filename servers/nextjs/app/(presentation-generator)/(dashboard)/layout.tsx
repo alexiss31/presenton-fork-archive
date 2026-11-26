@@ -8,12 +8,17 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         process.env.PRESENTATION_GENERATION_MODE,
     )
 
+    // Deskley's portal frames this dashboard under its own sidebar (DESKLEY_EMBED=true): a second one would repeat it.
+    const embedded = process.env.DESKLEY_EMBED === 'true'
+
     return (
-        <div className='flex pr-4 bg-white'>
-            <DashboardSidebar
-                showCommunity={isCommunityEnabled(process.env.PRESENTON_COMMUNITY_ENABLED)}
-                showTemplates={presentationGenerationMode !== "smart"}
-            />
+        <div className={embedded ? 'flex bg-white' : 'flex pr-4 bg-white'}>
+            {embedded ? null : (
+                <DashboardSidebar
+                    showCommunity={isCommunityEnabled(process.env.PRESENTON_COMMUNITY_ENABLED)}
+                    showTemplates={presentationGenerationMode !== "smart"}
+                />
+            )}
             <div className='w-full min-w-0'>
 
                 {children}
