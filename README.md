@@ -1,3 +1,7 @@
+> **Deskley Presenton.** This is Deskley's fork of [presenton/presenton](https://github.com/presenton/presenton) (Apache-2.0).
+> It adds `DESKLEY_EMBED=true`, which hides the dashboard sidebar when Deskley's portal frames the app, and publishes
+> its image to `ghcr.io/alexiss31/presenton`. To take upstream changes, run `git fetch upstream && git merge upstream/main`.
+
 <p align="center">
   <img src="./readme_assets/images/logo.png" alt="Presenton" />
 </p>
